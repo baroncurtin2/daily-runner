@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: "3.x"
       - name: Run Python script
-        run: python python/increment.py
+        run: python scripts/increment.py
 
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -30,7 +30,7 @@ jobs:
       - name: Run Go script
         run: |
           cd golang
-          go run increment.go
+          go run scripts/increment.go
 
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
@@ -38,8 +38,8 @@ jobs:
           toolchain: stable
       - name: Run Rust script
         run: |
-          cd rust
-          cargo run
+          cd scripts
+          cargo run increment.rs
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -50,11 +50,11 @@ jobs:
         run: |
           cd javascript
           npm install
-          node increment.js
+          node scripts/increment.js
 
       - name: Run TypeScript script
         run: |
-          cd typescript
+          cd scripts
           npm install
           npm start
 
